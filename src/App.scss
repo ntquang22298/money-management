@@ -269,7 +269,9 @@ $right-sider: 500px;
 .expense-budget {
   padding: 10px;
   display: flex;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
   overflow-y: auto;
   p {
     margin-bottom: 0;
@@ -297,6 +299,12 @@ $right-sider: 500px;
   .expense-card:nth-child(1) {
     margin-left: 0;
   }
+  .progress-icon {
+    margin-top: -20px;
+    svg {
+      font-size: 30px;
+    }
+  }
 }
 .ant-modal-footer {
   display: none;
@@ -310,4 +318,79 @@ $right-sider: 500px;
 .ant-select-selector,
 .ant-input {
   border: none !important;
+}
+.saving-header {
+  background: #fff;
+  color: #1b43c6;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 14px 20px 0px rgba(27, 67, 198, 0.3);
+  .ant-row {
+    width: 80%;
+    margin: auto !important;
+  }
+  .statistic {
+    color: #6294f9;
+    font-size: 15px;
+    margin-top: 40px;
+    svg {
+      font-size: 15px;
+    }
+  }
+
+  .total-balance {
+    color: #1b43c6;
+    font-size: 40px;
+    font-weight: 700;
+    span {
+      color: #6294f9;
+    }
+  }
+  .sub-title {
+    color: #6294f9;
+    font-size: 20px;
+  }
+  img {
+    margin-top: -20px;
+  }
+}
+.saving-content {
+  margin-top: 50px;
+
+  .saving-card {
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 20px;
+    margin: 10px;
+    color: #fff;
+    .title {
+      font-weight: 700;
+      font-size: 25px;
+    }
+    .ant-col {
+      padding: 20px;
+    }
+    .ant-progress-text {
+      color: #fff;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    .amount {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: #fff;
+      height: 60px;
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      font-weight: 900;
+      font-size: 25px;
+      border-radius: 10px;
+    }
+  }
 }

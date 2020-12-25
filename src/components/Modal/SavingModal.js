@@ -15,7 +15,7 @@ const SavingModal = (props) => {
     <div>
       <Modal visible={props.visible} closable={false}>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-          <img src={header} style={{ width: 400 }} />
+          <img src={header} style={{ width: 400 }} loading='lazy' alt='saving' />
         </div>
         <Form layout='vertical'>
           <Form.Item label='Source'>

@@ -1,30 +1,30 @@
 import React from 'react';
-import { DonutChart, Interaction, Tooltip, Annotation } from 'bizcharts';
+import { DonutChart, Interaction, Tooltip } from 'bizcharts';
 // 数据源
 const data = [
   {
-    type: 'Travel   ',
-    value: 27,
+    type: 'Fuel   ',
+    value: 500000,
   },
   {
-    type: 'Eat',
-    value: 25,
+    type: 'Food',
+    value: 1000000,
   },
   {
     type: 'Home',
-    value: 18,
-  },
-  {
-    type: 'Other',
-    value: 15,
+    value: 4000000,
   },
   {
     type: 'Shopping',
-    value: 10,
+    value: 5000000,
   },
   {
-    type: 'Loan',
-    value: 5,
+    type: 'Entertainment',
+    value: 150000,
+  },
+  {
+    type: 'Other',
+    value: 500000,
   },
 ];
 

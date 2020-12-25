@@ -13,7 +13,7 @@ const NewBudgetModal = (props) => {
     <div>
       <Modal visible={props.visible} closable={false}>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-          <img src={budget} style={{ width: 450 }} />
+          <img src={budget} style={{ width: 450 }} loading='lazy' alt='newBudget' />
         </div>
         <Form layout='vertical'>
           <Form.Item label='Type'>

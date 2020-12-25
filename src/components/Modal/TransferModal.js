@@ -14,7 +14,7 @@ const TransferModal = (props) => {
   return (
     <div className='transfer-modal'>
       <Modal visible={props.visible} closable={false}>
-        <img src={header} />
+        <img src={header} loading='lazy' alt='transfer' />
         <Form layout='vertical'>
           <Form.Item label='From'>
             <Select>

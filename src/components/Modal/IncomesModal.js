@@ -15,7 +15,7 @@ const IncomesModal = (props) => {
     <div>
       <Modal visible={props.visible} closable={false}>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-          <img src={header} style={{ width: 500 }} />
+          <img src={header} style={{ width: 500 }} loading='lazy' alt='income' />
         </div>
         <Form layout='vertical'>
           <Form.Item label='Source'>
