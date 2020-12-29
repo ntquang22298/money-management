@@ -17,13 +17,11 @@ const ExpenseHistory = () => {
               <small>10/10/2020</small>
             </Col>
             <Col xs={6}>
-              <p>
-                <Statistic
-                  value={1000000}
-                  valueStyle={{ color: 'red' }}
-                  prefix={<FaDollarSign style={{ fontSize: 15 }} />}
-                />
-              </p>
+              <Statistic
+                value={1000000}
+                valueStyle={{ color: 'red' }}
+                prefix={<FaDollarSign style={{ fontSize: 15 }} />}
+              />
             </Col>
           </Row>
         </li>
@@ -37,13 +35,11 @@ const ExpenseHistory = () => {
               <small>10/10/2020</small>
             </Col>
             <Col xs={6}>
-              <p>
-                <Statistic
-                  value={1000000}
-                  valueStyle={{ color: 'green' }}
-                  prefix={<FaDollarSign style={{ fontSize: 15 }} />}
-                />
-              </p>
+              <Statistic
+                value={1000000}
+                valueStyle={{ color: 'green' }}
+                prefix={<FaDollarSign style={{ fontSize: 15 }} />}
+              />
             </Col>
           </Row>
         </li>
@@ -57,13 +53,11 @@ const ExpenseHistory = () => {
               <small>10/10/2020</small>
             </Col>
             <Col xs={6}>
-              <p>
-                <Statistic
-                  value={1000000}
-                  valueStyle={{ color: 'green' }}
-                  prefix={<FaDollarSign style={{ fontSize: 15 }} />}
-                />
-              </p>
+              <Statistic
+                value={1000000}
+                valueStyle={{ color: 'green' }}
+                prefix={<FaDollarSign style={{ fontSize: 15 }} />}
+              />
             </Col>
           </Row>
         </li>

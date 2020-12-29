@@ -1,47 +1,31 @@
 import React from 'react';
-import { DonutChart, Interaction, Tooltip } from 'bizcharts';
+import { DonutChart } from 'bizcharts';
 // 数据源
-const data = [
-  {
-    type: 'Fuel   ',
-    value: 500000,
-  },
-  {
-    type: 'Food',
-    value: 1000000,
-  },
-  {
-    type: 'Home',
-    value: 4000000,
-  },
-  {
-    type: 'Shopping',
-    value: 5000000,
-  },
-  {
-    type: 'Entertainment',
-    value: 150000,
-  },
-  {
-    type: 'Other',
-    value: 500000,
-  },
-];
 
-const RingChart = () => {
+const RingChart = (props) => {
   return (
     <DonutChart
-      data={data || []}
+      data={props.expenseReducer.expenseByType || []}
       forceFit
       radius={0.8}
       padding='auto'
-      angleField='value'
+      angleField='amount'
       colorField='type'
       pieStyle={{ stroke: 'white', lineWidth: 5 }}
-    >
-      <Tooltip />
-      <Interaction type='element-single-selected' />
-    </DonutChart>
+      tooltip={{ visible: true }}
+      statistic={{
+        totalLabel: 'Total',
+      }}
+      legend={{ position: 'bottom-center' }}
+      label={{ visible: false }}
+      meta={{
+        amount: {
+          formatter: (v) => {
+            return new Intl.NumberFormat().format(v);
+          },
+        },
+      }}
+    />
   );
 };
 

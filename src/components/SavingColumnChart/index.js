@@ -1,6 +1,7 @@
-import React from 'react';
-import { Chart, Interval, Tooltip } from 'bizcharts';
-
+import React, { useEffect } from 'react';
+import { ColumnChart } from 'bizcharts';
+import { useDispatch, useSelector } from 'react-redux';
+import * as action from '../../actions/saving';
 const data = [
   { month: '1', sales: 100 },
   { month: '2', sales: 52 },
@@ -17,12 +18,30 @@ const data = [
 ];
 
 const SavingColumnChart = () => {
+  const dispatch = useDispatch();
+  const savingReducer = useSelector((state) => state.saving);
+  useEffect(() => {
+    dispatch(action.getAnnualSaving());
+  }, [dispatch]);
   return (
     <div className='balance-chart'>
-      <Chart height={200} autoFit data={data} interactions={['active-region']} padding='auto'>
-        <Interval position='month*sales' />
-        <Tooltip shared />
-      </Chart>
+      <ColumnChart
+        height={200}
+        autoFit
+        data={savingReducer.annualSaving}
+        xField='month'
+        yField='amount'
+        xAxis={{ title: { visible: false } }}
+        yAxis={{ title: { visible: false } }}
+        meta={{
+          amount: {
+            alias: 'balance',
+            formatter: (v) => {
+              return new Intl.NumberFormat().format(v);
+            },
+          },
+        }}
+      />
     </div>
   );
 };

@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col, Statistic } from 'antd';
 import { FaDollarSign } from 'react-icons/fa';
 import ExpenseChart from '../ExpenseChart';
-const ExpensesStatistic = () => {
+
+const ExpensesStatistic = (props) => {
   return (
     <div className='expense-statistic'>
       <Row gutter={16}>
         <Col md={6}>
           <div className='expenses'>
-            <Statistic title='All expenses' value={112893} prefix={<FaDollarSign />} />
+            <Statistic
+              title='All expenses'
+              value={props.expenseReducer.monthlyExpense}
+              prefix={<FaDollarSign />}
+            />
           </div>
         </Col>
         <Col md={18}>

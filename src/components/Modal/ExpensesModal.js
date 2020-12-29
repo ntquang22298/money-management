@@ -1,25 +1,41 @@
-import { Modal, Form, Select, Input, Space, Button } from 'antd';
 import React from 'react';
+import { Modal, Form, Select, Input, Space, Button, InputNumber } from 'antd';
 import header from '../../images/expenses.png';
+import { useDispatch } from 'react-redux';
+import * as action from '../../actions/expenses';
+const { TextArea } = Input;
 const tailLayout = {
   wrapperCol: { offset: 16, span: 16 },
 };
 const ExpensesModal = (props) => {
+  const dispatch = useDispatch();
+
   const handleCancel = () => {
     props.setVisible(false);
   };
-  const handleTransfer = () => {
+  const handleExpense = (value) => {
+    dispatch(action.createExpense(value));
     props.setVisible(false);
   };
+
   return (
     <div>
-      <Modal visible={props.visible} closable={false}>
+      <Modal centered visible={props.visible} closable={false}>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <img src={header} style={{ width: 500 }} loading='lazy' alt='expenses' />
         </div>
-        <Form layout='vertical'>
-          <Form.Item label='Source'>
-            <Select>
+        <Form layout='vertical' name='expenseForm' onFinish={handleExpense}>
+          <Form.Item
+            label='Source'
+            name='source'
+            rules={[
+              {
+                required: true,
+                message: 'Please select source',
+              },
+            ]}
+          >
+            <Select placeholder='Source'>
               <Select.Option value='cash'>Cash</Select.Option>
               <Select.Option value='vcb'>VCB</Select.Option>
               <Select.Option value='bidv'>BIDV</Select.Option>
@@ -30,28 +46,48 @@ const ExpensesModal = (props) => {
               <Select.Option value='vnpay'>VNPAY Wallet</Select.Option>
             </Select>
           </Form.Item>
-          <Form.Item label='Type'>
-            <Select>
+          <Form.Item
+            label='Type'
+            name='expenseType'
+            rules={[
+              {
+                required: true,
+                message: 'Please select type',
+              },
+            ]}
+          >
+            <Select placeholder='Type'>
               <Select.Option value='travel'>Travel</Select.Option>
-              <Select.Option value='vcb'>VCB</Select.Option>
-              <Select.Option value='bidv'>BIDV</Select.Option>
-              <Select.Option value='agribank'>Agribank</Select.Option>
-              <Select.Option value='momo'>Momo</Select.Option>
-              <Select.Option value='airpay'>Airpay</Select.Option>
-              <Select.Option value='zalopay'>Zalo pay</Select.Option>
-              <Select.Option value='vnpay'>VNPAY Wallet</Select.Option>
+              <Select.Option value='food'>Food</Select.Option>
+              <Select.Option value='home'>Home</Select.Option>
+              <Select.Option value='shopping'>Shopping</Select.Option>
+              <Select.Option value='entertainment'>Entertainment</Select.Option>
+              <Select.Option value='other'>Other</Select.Option>
             </Select>
           </Form.Item>
-          <Form.Item label='Amount'>
-            <Input />
+          <Form.Item
+            label='Amount'
+            name='amount'
+            rules={[
+              {
+                required: true,
+                message: 'Please enter amount',
+              },
+            ]}
+          >
+            <InputNumber
+              placeholder='Amount'
+              formatter={(value) => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+            />
           </Form.Item>
-          <Form.Item label='Description'>
-            <Input />
+          <Form.Item label='Description' name='description'>
+            <TextArea rows={4} />
           </Form.Item>
           <Form.Item {...tailLayout}>
             <Space>
               <Button onClick={handleCancel}>Cancel</Button>
-              <Button type='primary' onClick={handleTransfer}>
+              <Button type='primary' htmlType='submit'>
                 Spend
               </Button>
             </Space>

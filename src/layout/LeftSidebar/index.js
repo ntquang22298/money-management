@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const LeftSidebar = () => {
   return (
     <div style={{ height: '100%' }}>
-      <Menu mode='inline' inlineCollapsed={true} className='menu'>
+      <Menu mode='inline' className='menu'>
         <Menu.Item key='1' title='Home'>
           <Link to='/'>
             <FaHome style={{ color: 'blue' }} />
