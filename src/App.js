@@ -15,9 +15,9 @@ const App = () => {
   return (
     <Router history={hist}>
       <Switch>
-        <Route path='/login' component={LoginPage} />
-        <Route path='/register' component={RegisterPage} />
-        <PrivateRoute path='/' component={Main} />
+        {/* <Route path='/login' component={LoginPage} />
+        <Route path='/register' component={RegisterPage} /> */}
+        <Route path='/' component={Main} />
       </Switch>
     </Router>
   );

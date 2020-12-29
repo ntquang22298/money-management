@@ -14,6 +14,7 @@ const ExpensesPage = () => {
 
   useEffect(() => {
     dispatch(expenseAction.getAllExpense());
+    dispatch(expenseAction.getLatesExpense());
   }, [dispatch]);
 
   const expenseReducer = useSelector((state) => state.expense);
@@ -27,10 +28,10 @@ const ExpensesPage = () => {
           <RingChart expenseReducer={expenseReducer} />
         </Col>
         <Col lg={12}>
-          <ExpenseHistory />
+          <ExpenseHistory expenseReducer={expenseReducer} />
         </Col>
       </Row>
-      <ExpenseBudget />
+      <ExpenseBudget expenseReducer={expenseReducer} />
     </div>
   );
 };

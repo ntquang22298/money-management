@@ -44,7 +44,6 @@ export const getTodayExpense = () => async (dispatch) => {
 export const getAllExpense = () => async (dispatch) => {
   let sum = 0;
   let expenseByType = [
-    { type: 'Travel', amount: 0 },
     { type: 'Fuel', amount: 0 },
     { type: 'Food', amount: 0 },
     { type: 'Home', amount: 0 },
@@ -85,5 +84,12 @@ export const getDailyExpense = () => async (dispatch) => {
   dispatch({
     type: actionType.GET_DAILY_EXPENSE,
     dailyExpense: array,
+  });
+};
+export const getLatesExpense = () => async (dispatch) => {
+  let res = await services.getLatesExpense();
+  dispatch({
+    type: actionType.GET_LATES_EXPENSE,
+    latesExpense: res,
   });
 };

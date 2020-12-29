@@ -6,6 +6,7 @@ const initialState = {
   monthlyExpense: '',
   dailyExpense: [],
   expenseByType: [],
+  latesExpense: [],
 };
 
 const expenseReducer = (state = initialState, action) => {
@@ -31,6 +32,11 @@ const expenseReducer = (state = initialState, action) => {
       return {
         ...state,
         dailyExpense: action.dailyExpense,
+      };
+    case actionType.GET_LATES_EXPENSE:
+      return {
+        ...state,
+        latesExpense: action.latesExpense,
       };
 
     default:

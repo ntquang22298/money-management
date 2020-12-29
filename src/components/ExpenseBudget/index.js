@@ -8,57 +8,45 @@ import {
   FaFileInvoiceDollar,
   FaMusic,
 } from 'react-icons/fa';
-const ExpenseBudget = () => {
+
+const ExpenseBudget = (props) => {
+  const budget = {
+    Fuel: 5000000,
+    Food: 1800000,
+    Home: 1500000,
+    Shopping: 1000000,
+    Entertainment: 500000,
+    Other: 1000000,
+  };
+  const getIcon = (type) => {
+    switch (type) {
+      case 'Fuel':
+        return <FaGasPump />;
+      case 'Food':
+        return <FaHamburger />;
+      case 'Home':
+        return <FaHome />;
+      case 'Shopping':
+        return <FaShoppingCart />;
+      case 'Entertainment':
+        return <FaMusic />;
+      case 'Other':
+        return <FaFileInvoiceDollar />;
+    }
+  };
   return (
     <div className='expense-budget'>
-      <div className='expense-card'>
-        <Progress type='dashboard' percent={75} />
-        <span className='progress-icon'>
-          <FaGasPump />
-        </span>
-        <p>Fuel</p>
-        <p>225$</p>
-      </div>
-      <div className='expense-card'>
-        <Progress type='dashboard' percent={75} />
-        <span className='progress-icon'>
-          <FaHamburger />
-        </span>
-        <p>Food</p>
-        <p>225$</p>
-      </div>
-      <div className='expense-card'>
-        <Progress type='dashboard' percent={75} />
-        <span className='progress-icon'>
-          <FaHome />
-        </span>
-        <p>Home</p>
-        <p>225$</p>
-      </div>
-      <div className='expense-card'>
-        <Progress type='dashboard' percent={75} />
-        <span className='progress-icon'>
-          <FaShoppingCart />
-        </span>
-        <p>Shopping</p>
-        <p>225$</p>
-      </div>
-      <div className='expense-card'>
-        <Progress type='dashboard' percent={75} />
-        <span className='progress-icon'>
-          <FaMusic />
-        </span>
-        <p>Entertainment</p>
-        <p>225$</p>
-      </div>
-      <div className='expense-card'>
-        <Progress type='dashboard' percent={75} />
-        <span className='progress-icon'>
-          <FaFileInvoiceDollar />
-        </span>
-        <p>Other</p>
-        <p>225$</p>
-      </div>
+      {props.expenseReducer.expenseByType.map((item, index) => (
+        <div className='expense-card' key={index}>
+          <Progress
+            type='dashboard'
+            percent={Math.round((item.amount / budget[item.type]) * 100)}
+          />
+          <span className='progress-icon'>{getIcon(item.type)}</span>
+          <p>{item.type}</p>
+          <p>{new Intl.NumberFormat().format(item.amount)}</p>
+        </div>
+      ))}
     </div>
   );
 };

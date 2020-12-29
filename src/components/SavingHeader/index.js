@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col, Space, Button } from 'antd';
-import { FaArrowUp } from 'react-icons/fa';
 import SavingColumnChart from '../SavingColumnChart';
 const SavingHeader = () => {
   return (

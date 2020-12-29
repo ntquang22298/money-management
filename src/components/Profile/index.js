@@ -16,11 +16,11 @@ const Profile = () => {
         <Avatar size={100} icon={<FaUserCircle />} />
         <Title level={4}>Nguyen Tuan Quang</Title>
         <Text>ntquang22298@gmail.com</Text>
-        <Button
+        {/* <Button
           icon={<FaSignOutAlt />}
           style={{ background: '#000', color: '#fff' }}
           onClick={handleLogout}
-        ></Button>
+        ></Button> */}
       </Space>
     </div>
   );

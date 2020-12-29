@@ -26,7 +26,7 @@ const getAllLedgers = async (type) => {
     .get();
   return res;
 };
-const getAllSaving = async (type) => {
+const getAllSaving = async () => {
   let date = new Date();
   let res = await db
     .collection('ledger')
@@ -39,7 +39,15 @@ const getLatesLedgers = async () => {
   let res = await db.collection('ledger').limit(4).orderBy('timestamp', 'desc').get();
   return res;
 };
-
+const getLatesExpense = async () => {
+  let res = await db
+    .collection('ledger')
+    .where('type', '==', types.DEBIT)
+    .limit(4)
+    .orderBy('timestamp', 'desc')
+    .get();
+  return res;
+};
 const getTodayExpense = async () => {
   let res = await db
     .collection('ledger')
@@ -56,4 +64,5 @@ export default {
   getAllLedgers,
   getLatesLedgers,
   getTodayExpense,
+  getLatesExpense,
 };

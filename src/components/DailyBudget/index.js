@@ -24,9 +24,9 @@ const DailyBudget = (props) => {
               <Col md={18} style={{ alignItems: 'center', display: 'flex' }}>
                 <Progress
                   percent={
-                    (props.expenseReducer.todayExpense / 100000000) * 100 >= 100
+                    (props.expenseReducer.todayExpense / 200000) * 100 >= 100
                       ? 100
-                      : (props.expenseReducer.todayExpense / 100000000) * 100
+                      : (props.expenseReducer.todayExpense / 200000) * 100
                   }
                   size='small'
                   status='active'
