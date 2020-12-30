@@ -15,6 +15,7 @@ const BalanceChart = (props) => {
         yField='amount'
         xAxis={{ title: { visible: false } }}
         yAxis={{ title: { visible: false } }}
+        animation={false}
         meta={{
           amount: {
             alias: 'balance',

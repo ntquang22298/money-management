@@ -2,6 +2,8 @@ import { actionType } from '../consts/saving';
 const initialState = {
   monthlySaving: '',
   annualSaving: [],
+  totalThisYear: '',
+  goals: {},
 };
 
 const savingReducer = (state = initialState, action) => {
@@ -20,6 +22,8 @@ const savingReducer = (state = initialState, action) => {
       return {
         ...state,
         annualSaving: action.annualSaving,
+        totalThisYear: action.totalThisYear,
+        goals: action.goals,
       };
 
     default:

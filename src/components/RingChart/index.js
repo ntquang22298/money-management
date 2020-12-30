@@ -16,7 +16,7 @@ const RingChart = (props) => {
       statistic={{
         totalLabel: 'Total',
       }}
-      legend={{ position: 'bottom-center' }}
+      animation={false}
       label={{ visible: false }}
       meta={{
         amount: {

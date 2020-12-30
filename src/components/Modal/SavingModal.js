@@ -9,22 +9,23 @@ const tailLayout = {
 };
 const SavingModal = (props) => {
   const dispatch = useDispatch();
-
+  const form = Form.useForm();
   const handleCancel = () => {
     props.setVisible(false);
   };
-  const handleSaving = (value) => {
-    dispatch(action.createSaving(value));
+  const handleSaving = async (value) => {
+    await dispatch(action.createSaving(value));
     props.setVisible(false);
+    form.resetFields();
   };
 
   return (
     <div>
-      <Modal centered visible={props.visible} closable={false}>
+      <Modal centered visible={props.visible} closable={false} form={form}>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <img src={header} style={{ width: 300 }} loading='lazy' alt='saving' />
         </div>
-        <Form layout='vertical' name='expenseForm' onFinish={handleSaving}>
+        <Form layout='vertical' name='savingForm' onFinish={handleSaving}>
           <Form.Item
             label='Source'
             name='source'
@@ -52,14 +53,14 @@ const SavingModal = (props) => {
             rules={[
               {
                 required: true,
-                message: 'Goal',
+                message: 'Goal is required!',
               },
             ]}
           >
-            <Select placeholder='Type'>
-              <Select.Option value='travel'>Macbook</Select.Option>
-              <Select.Option value='vcb'>Da Nang Travel</Select.Option>
-              <Select.Option value='bidv'>Wedding Rings</Select.Option>
+            <Select placeholder='goal'>
+              <Select.Option value='macbook'>Macbook</Select.Option>
+              <Select.Option value='travel'>Da Nang Travel</Select.Option>
+              <Select.Option value='rings'>Wedding Rings</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item

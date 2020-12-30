@@ -24,10 +24,10 @@ const ExpensesPage = () => {
       {/* <SearchBox /> */}
       <ExpensesStatistic expenseReducer={expenseReducer} />
       <Row style={{ paddingTop: 30, minHeight: 400 }}>
-        <Col lg={12}>
+        <Col lg={14}>
           <RingChart expenseReducer={expenseReducer} />
         </Col>
-        <Col lg={12}>
+        <Col lg={10}>
           <ExpenseHistory expenseReducer={expenseReducer} />
         </Col>
       </Row>

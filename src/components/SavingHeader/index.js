@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Space, Button } from 'antd';
 import SavingColumnChart from '../SavingColumnChart';
-const SavingHeader = () => {
+const SavingHeader = (props) => {
   return (
     <div className='saving-header'>
       <Row>
@@ -10,7 +10,7 @@ const SavingHeader = () => {
             <p className='sub-title'>Saving balance</p>
             <p className='total-balance'>
               <span>$ </span>
-              {new Intl.NumberFormat('us-US').format(100000000)}
+              {new Intl.NumberFormat('us-US').format(props.savingReducer.totalThisYear)}
             </p>
             <p className='statistic'>
               <Button type='primary' style={{ borderRadius: 15, width: 150 }}>
@@ -20,7 +20,7 @@ const SavingHeader = () => {
           </Space>
         </Col>
         <Col md={14} style={{ textAlign: 'center' }}>
-          <SavingColumnChart />
+          <SavingColumnChart savingReducer={props.savingReducer} />
         </Col>
       </Row>
     </div>

@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 //ant components
-import { Row, Col, Statistic, Radio } from 'antd';
+import { Row, Col, Statistic } from 'antd';
 //import icons
-import { FaUpload, FaDownload, FaCalendar, FaPiggyBank } from 'react-icons/fa';
+import { FaUpload, FaDownload, FaPiggyBank } from 'react-icons/fa';
 
-const options = [
-  { label: 'Day', value: 'Day' },
-  { label: 'Month', value: 'Month' },
-];
+// const options = [
+//   { label: 'Day', value: 'Day' },
+//   { label: 'Month', value: 'Month' },
+// ];
 
 const ToolsBar = (props) => {
   return (
@@ -21,7 +21,7 @@ const ToolsBar = (props) => {
               </Col>
 
               <Col xs={16}>
-                <Statistic title='Monthly Expenses' value={props.expenseReducer.monthlyExpense} />
+                <Statistic title=' Expenses' value={props.expenseReducer.monthlyExpense} />
               </Col>
             </Row>
           </div>
@@ -34,7 +34,7 @@ const ToolsBar = (props) => {
               </Col>
 
               <Col xs={16}>
-                <Statistic title='Monthly Income' value={props.incomeReducer.monthlyIncome} />
+                <Statistic title=' Income' value={props.incomeReducer.monthlyIncome} />
               </Col>
             </Row>
           </div>
@@ -48,7 +48,7 @@ const ToolsBar = (props) => {
               </Col>
 
               <Col xs={16}>
-                <Statistic title='Monthly Saving' value={props.savingReducer.monthlySaving} />
+                <Statistic title=' Saving' value={props.savingReducer.monthlySaving} />
               </Col>
             </Row>
           </div>

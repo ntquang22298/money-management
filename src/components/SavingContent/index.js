@@ -6,7 +6,7 @@ import macbook from '../../images/macbook-pro.svg';
 import travel from '../../images/travel.svg';
 import rings from '../../images/wedding-rings.svg';
 
-const SavingContent = () => {
+const SavingContent = (props) => {
   return (
     <div className='saving-content'>
       <Row>
@@ -18,7 +18,7 @@ const SavingContent = () => {
             progressColor='#76AEFC'
             amount={50}
             color='#082FFC'
-            percent={70}
+            percent={Math.round((props.savingReducer.goals.macbook / 50000000) * 100)}
           />
         </Col>
         <Col lg={12}>
@@ -29,7 +29,7 @@ const SavingContent = () => {
             progressColor='#FFE2B2'
             amount={12}
             color='#FF7F00'
-            percent={0}
+            percent={Math.round((props.savingReducer.goals.travel / 12000000) * 100)}
           />
         </Col>
         <Col lg={12}>
@@ -38,9 +38,9 @@ const SavingContent = () => {
             title='Wedding rings'
             src={rings}
             progressColor='#E9C1FF'
-            amount={12}
+            amount={50}
             color='#A436FC'
-            percent={0}
+            percent={Math.round((props.savingReducer.goals.rings / 50000000) * 100)}
           />
         </Col>
       </Row>

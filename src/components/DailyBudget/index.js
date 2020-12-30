@@ -8,7 +8,7 @@ const DailyBudget = (props) => {
       <Row gutter={16}>
         <Col md={6}>
           <div className='budget'>
-            <Statistic title='Daily Budget' value={112893} prefix={<FaDollarSign />} />
+            <Statistic title='Daily Budget' value={200000} prefix={<FaDollarSign />} />
           </div>
         </Col>
         <Col md={18}>

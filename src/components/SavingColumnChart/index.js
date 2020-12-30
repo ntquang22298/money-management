@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ColumnChart } from 'bizcharts';
-import { useDispatch, useSelector } from 'react-redux';
-import * as action from '../../actions/saving';
+
 const data = [
   { month: '1', sales: 100 },
   { month: '2', sales: 52 },
@@ -17,22 +16,18 @@ const data = [
   { month: '12', sales: 38 },
 ];
 
-const SavingColumnChart = () => {
-  const dispatch = useDispatch();
-  const savingReducer = useSelector((state) => state.saving);
-  useEffect(() => {
-    dispatch(action.getAnnualSaving());
-  }, [dispatch]);
+const SavingColumnChart = (props) => {
   return (
     <div className='balance-chart'>
       <ColumnChart
         height={200}
         autoFit
-        data={savingReducer.annualSaving}
+        data={props.savingReducer.annualSaving}
         xField='month'
         yField='amount'
         xAxis={{ title: { visible: false } }}
         yAxis={{ title: { visible: false } }}
+        animation={false}
         meta={{
           amount: {
             alias: 'balance',

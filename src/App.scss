@@ -1,56 +1,86 @@
-$header: 60px;
-$left-sider: 100px;
-$right-sider: 500px;
+html {
+  font-size: 1px;
+  //scroll
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2rem rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+  }
 
+  ::-webkit-scrollbar {
+    width: 1rem;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2rem solid #555555;
+  }
+  background: rgba(208, 211, 229, 0.2);
+}
+@media screen and (max-width: 1500px) {
+  html {
+    font-size: 0.8px;
+  }
+}
+$header: 60rem;
+$left-sider: 100rem;
+$right-sider: 500rem;
 .left-sider {
+  animation: 0.5s ease-in-out 0s 1 slideInFromLeft;
+
   max-width: $left-sider !important;
   min-width: $left-sider !important;
   width: $left-sider !important;
   background: #f3f4f9;
+
   .menu {
-    padding-top: 100px;
+    padding-top: 100rem;
     height: 100%;
     li {
-      height: 60px;
+      height: 60rem;
       display: flex;
       justify-content: center;
       align-items: center;
       svg {
-        font-size: 20px;
+        font-size: 30rem;
       }
     }
   }
 }
 
 .right-sider {
+  animation: 0.5s ease-in-out 0s 1 slideInFromRight;
+
   max-width: $right-sider !important;
   min-width: $right-sider !important;
   width: $right-sider !important;
   background: #fff;
   .profile {
     background: rgba(208, 211, 229, 0.2);
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0rem 8rem 24rem;
     display: flex;
-    padding: 20px 50px;
+    padding: 20rem 50rem;
     justify-content: center;
     align-self: center;
     flex-direction: column;
-    margin: 30px;
-    border-radius: 15px;
+    margin: 30rem;
+    border-radius: 15rem;
   }
   .history {
-    padding: 20px 50px;
+    padding: 20rem 50rem;
     .title {
       font-weight: 700;
-      font-size: 20px;
+      font-size: 20rem;
     }
     ul {
       list-style: none;
-      padding-left: 0px;
+      padding-left: 0rem;
       li {
-        padding: 20px 0px;
+        font-size: 18rem;
+
+        padding: 20rem 0rem;
         span {
-          font-size: 15px;
+          font-size: 18rem;
         }
       }
       .icon {
@@ -59,135 +89,145 @@ $right-sider: 500px;
         align-items: center;
       }
       svg {
-        font-size: 20px;
+        font-size: 25rem;
       }
     }
   }
   .money-flow {
-    padding: 20px 50px;
+    padding: 20rem 50rem;
     display: flex;
     justify-content: space-around;
     .ant-btn {
-      min-width: 100px !important;
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-        0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      min-width: 100rem !important;
+      box-shadow: 0 3rem 1rem -2rem rgba(0, 0, 0, 0.2), 0 2rem 2rem 0 rgba(0, 0, 0, 0.14),
+        0 1rem 5rem 0 rgba(0, 0, 0, 0.12);
       border: none;
-      min-height: 50px;
+      min-height: 50rem;
     }
     svg {
-      font-size: 20px;
+      font-size: 20rem;
     }
   }
 }
 .ant-layout-content {
   min-height: 100vh;
-  background: rgba(208, 211, 229, 0.2);
-  padding: 20px 50px;
+  padding: 20rem 50rem;
   p {
-    margin-bottom: 10px;
+    margin-bottom: 10rem;
   }
   .balance {
+    animation: 0.5s ease-in-out 0s 1 topToBottom;
+
     background: #1b43c6;
     color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 14px 20px 0px rgba(27, 67, 198, 0.3);
+    padding: 20rem;
+    border-radius: 20rem;
+    box-shadow: 0rem 14rem 20rem 0rem rgba(27, 67, 198, 0.3);
     .ant-row {
       width: 80%;
       margin: auto !important;
     }
     .statistic {
       color: rgba(231, 236, 250, 0.7);
-      font-size: 15px;
-      margin-top: 40px;
+      font-size: 15rem;
+      margin-top: 40rem;
       svg {
-        font-size: 15px;
+        font-size: 15rem;
       }
     }
 
     .total-balance {
       color: #fff;
-      font-size: 40px;
+      font-size: 40rem;
       font-weight: 700;
-      span {
+      .prefix {
         color: rgba(231, 236, 250, 0.7);
       }
     }
     .sub-title {
       color: rgba(231, 236, 250, 0.7);
-      font-size: 20px;
+      font-size: 20rem;
     }
     img {
-      margin-top: -20px;
+      margin-top: -20rem;
     }
   }
   .tools-bar {
-    margin-top: 30px;
+    animation: 0.5s ease-in-out 0s 1 fadeIn;
+
+    margin-top: 30rem;
+    .ant-statistic-content {
+      font-size: 25rem;
+    }
     .card {
-      border-radius: 15px;
+      border-radius: 15rem;
       background: #fff;
-      padding: 20px;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      padding: 20rem;
+      box-shadow: rgba(149, 157, 165, 0.2) 0rem 8rem 24rem;
       .icon {
         display: flex;
         justify-content: center;
         align-items: center;
       }
       svg {
-        font-size: 30px;
+        font-size: 30rem;
       }
     }
   }
   .balance-chart {
-    margin-top: 20px;
+    animation: 0.5s ease-in-out 0s 1 fadeIn;
+
+    margin-top: 20rem;
   }
   .daily-budget {
-    margin-top: 50px;
+    animation: 0.5s ease-in-out 0s 1 fadeIn;
+
+    margin-top: 50rem;
     background: #fff;
-    border-radius: 30px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 30rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0rem 8rem 24rem;
     svg {
-      font-size: 25px;
+      font-size: 25rem;
     }
     .budget {
       background: #0b0c25;
-      border-radius: 20px;
-      padding: 30px;
+      border-radius: 20rem;
+      padding: 30rem;
       .ant-statistic-title {
         color: #fff;
       }
       span {
         color: #fff;
-        font-size: 30px;
+        font-size: 30rem;
       }
     }
     .spent {
-      padding: 30px;
+      padding: 30rem;
 
       span {
-        font-size: 30px;
+        font-size: 30rem;
         color: #1b43c6;
       }
     }
   }
 }
 .search-box {
-  $element-radius-border: 8px;
+  $element-radius-border: 8rem;
   background-color: #1b43c6;
-  padding: 20px;
+  padding: 20rem;
   color: #fff;
   ::placeholder,
   .ant-select-selection-placeholder {
     color: #fff !important;
   }
-  border-radius: 20px;
+  border-radius: 20rem;
   .ant-form-inline {
     display: flex;
     justify-content: space-between;
   }
   .ant-select,
   .ant-select-selector {
-    min-width: 350px;
+    min-width: 350rem;
     border-radius: $element-radius-border !important;
     background: #2257f7 !important;
     border: none !important;
@@ -197,7 +237,7 @@ $right-sider: 500px;
     }
   }
   .ant-picker {
-    min-width: 200px;
+    min-width: 200rem;
     border-radius: $element-radius-border;
     background: #2257f7;
     color: #fff;
@@ -208,52 +248,56 @@ $right-sider: 500px;
     }
   }
   .ant-btn {
-    min-width: 200px;
+    min-width: 200rem;
     border-radius: $element-radius-border;
   }
 }
 .expense-statistic {
-  margin-top: 20px;
+  animation: 0.5s ease-in-out 0s 1 topToBottom;
+
+  margin-top: 20rem;
   background: #fff;
-  border-radius: 30px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 30rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0rem 8rem 24rem;
   svg {
-    font-size: 25px;
+    font-size: 25rem;
   }
   .expenses {
     display: flex;
     align-items: center;
     justify-content: center;
     background: #0b0c25;
-    border-radius: 20px;
-    padding: 30px;
+    border-radius: 20rem;
+    padding: 30rem;
     height: 100%;
     .ant-statistic-title {
       color: #fff;
     }
     span {
       color: #fff;
-      font-size: 30px;
+      font-size: 30rem;
     }
   }
   .line-chart {
-    padding: 20px;
+    padding: 20rem;
   }
 }
 .expense-history {
+  animation: 0.5s ease-in-out 0s 1 slideInFromRight;
+
   background: #fff;
   width: 100%;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10rem;
+  padding: 20rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0rem 8rem 24rem;
 
   ul {
     list-style: none;
-    padding-left: 0px;
+    padding-left: 0rem;
     li {
-      padding: 10px 0px;
+      padding: 10rem 0rem;
       span {
-        font-size: 15px;
+        font-size: 15rem;
       }
     }
     .icon {
@@ -262,36 +306,48 @@ $right-sider: 500px;
       align-items: center;
     }
     svg {
-      font-size: 20px;
+      font-size: 20rem;
     }
   }
 }
 .expense-budget {
-  padding: 10px;
+  animation: 0.5s ease-in-out 0s 1 fadeIn;
+
+  padding: 10rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 5rem;
   overflow-y: auto;
   p {
     margin-bottom: 0;
   }
   .expense-card {
-    margin-left: 20px;
+    margin-left: 20rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background: #fff;
-    width: 160px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 5px 14px;
+    width: 160rem;
+    padding: 20rem;
+    border-radius: 10rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0rem 5rem 14rem;
+    cursor: pointer;
+    &:hover {
+      background: #02030d;
+      color: #fff;
+      .ant-progress-text {
+        color: #fff;
+      }
+
+      transition: all 0.5s;
+    }
   }
   .default-card {
     background: rgba(149, 157, 165, 0.2);
     svg {
-      font-size: 50px;
+      font-size: 50rem;
     }
     box-shadow: none;
     cursor: pointer;
@@ -300,9 +356,9 @@ $right-sider: 500px;
     margin-left: 0;
   }
   .progress-icon {
-    margin-top: -20px;
+    margin-top: -20rem;
     svg {
-      font-size: 30px;
+      font-size: 30rem;
     }
   }
 }
@@ -312,7 +368,7 @@ $right-sider: 500px;
 .ant-modal-body,
 .ant-modal-content {
   background: #e5eaf2;
-  border-radius: 8px;
+  border-radius: 8rem;
 }
 .ant-modal {
   .ant-select,
@@ -323,27 +379,29 @@ $right-sider: 500px;
 }
 
 .saving-header {
+  animation: 0.5s ease-in-out 0s 1 topToBottom;
+
   background: #fff;
   color: #1b43c6;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0px 14px 20px 0px rgba(27, 67, 198, 0.3);
+  padding: 20rem;
+  border-radius: 20rem;
+  box-shadow: 0rem 14rem 20rem 0rem rgba(27, 67, 198, 0.3);
   .ant-row {
     width: 80%;
     margin: auto !important;
   }
   .statistic {
     color: #6294f9;
-    font-size: 15px;
-    margin-top: 40px;
+    font-size: 15rem;
+    margin-top: 40rem;
     svg {
-      font-size: 15px;
+      font-size: 15rem;
     }
   }
 
   .total-balance {
     color: #1b43c6;
-    font-size: 40px;
+    font-size: 40rem;
     font-weight: 700;
     span {
       color: #6294f9;
@@ -351,66 +409,54 @@ $right-sider: 500px;
   }
   .sub-title {
     color: #6294f9;
-    font-size: 20px;
+    font-size: 20rem;
   }
   img {
-    margin-top: -20px;
+    margin-top: -20rem;
   }
 }
 .saving-content {
-  margin-top: 50px;
+  animation: 0.5s ease-in-out 0s 1 fadeIn;
+
+  margin-top: 50rem;
   .saving-card {
-    border-radius: 10px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    padding: 20px;
-    margin: 10px;
+    border-radius: 10rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0rem 8rem 24rem;
+    padding: 20rem;
+    margin: 10rem;
     color: #fff;
     .title {
       font-weight: 700;
-      font-size: 25px;
+      font-size: 25rem;
     }
     .ant-col {
-      padding: 20px;
+      padding: 20rem;
     }
     .ant-progress-text {
       color: #fff;
     }
     img {
-      width: 100px;
-      height: 100px;
+      width: 100rem;
+      height: 100rem;
     }
     .amount {
       position: absolute;
-      right: 20px;
-      top: 20px;
+      right: 20rem;
+      top: 20rem;
       background: #fff;
-      height: 60px;
-      width: 120px;
+      height: 60rem;
+      width: 120rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
+      padding: 10rem;
       font-weight: 900;
-      font-size: 25px;
-      border-radius: 10px;
+      font-size: 25rem;
+      border-radius: 10rem;
     }
   }
 }
-//scroll
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
-  background-color: #f5f5f5;
-}
 
-::-webkit-scrollbar {
-  width: 5px;
-  background-color: #f5f5f5;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #000000;
-  border: 2px solid #555555;
-}
 .ant-input-number {
   width: 100% !important;
 }
@@ -435,31 +481,90 @@ $right-sider: 500px;
   }
   .card {
     position: relative;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    width: 1000px;
-    height: 600px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0rem 8rem 24rem;
+    width: 1000rem;
+    height: 600rem;
     .title {
       font-weight: 700;
     }
     .form {
-      padding: 40px 60px !important;
+      padding: 40rem 60rem !important;
       align-self: center;
       .ant-btn {
-        width: 150px;
-        height: 40px;
-        border-radius: 20px;
+        width: 150rem;
+        height: 40rem;
+        border-radius: 20rem;
         font-weight: 700;
       }
     }
     .change-page {
       position: absolute;
-      right: 0px;
-      top: 0px;
-      padding: 30px;
+      right: 0rem;
+      top: 0rem;
+      padding: 30rem;
       .ant-btn {
-        margin-left: 20px;
-        border-radius: 15px;
+        margin-left: 20rem;
+        border-radius: 15rem;
       }
     }
+  }
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(+100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes topToBottom {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes bottomToTop {
+  0% {
+    transform: translateY(+100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    transform: translateY(+20%);
+
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(+15%);
+
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(+10%);
+
+    opacity: 0.75;
+  }
+  70% {
+    transform: translateY(+5%);
+
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+
+    opacity: 1;
   }
 }

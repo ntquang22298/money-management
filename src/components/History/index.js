@@ -46,13 +46,13 @@ const History = () => {
                 <Col xs={4} className='icon'>
                   {getIcon(doc.data().type)}
                 </Col>
-                <Col xs={14}>
+                <Col xs={12}>
                   <p>{doc.data().description}</p>
                   <small>
                     {doc.data().date}/{doc.data().month + 1}/{doc.data().year}
                   </small>
                 </Col>
-                <Col xs={6}>
+                <Col xs={8}>
                   <Statistic
                     value={doc.data().amount}
                     valueStyle={{ color: getStaticStyle(doc.data().type) }}

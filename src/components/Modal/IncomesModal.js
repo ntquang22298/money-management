@@ -10,12 +10,15 @@ const tailLayout = {
 const { TextArea } = Input;
 const IncomesModal = (props) => {
   const dispatch = useDispatch();
+  const [form] = Form.useForm();
+
   const handleCancel = () => {
     props.setVisible(false);
   };
-  const handleIncome = (value) => {
-    dispatch(action.createIncome(value));
+  const handleIncome = async (value) => {
+    await dispatch(action.createIncome(value));
     props.setVisible(false);
+    form.resetFields();
   };
 
   return (
@@ -24,7 +27,12 @@ const IncomesModal = (props) => {
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <img src={header} style={{ width: 400 }} loading='lazy' alt='income' />
         </div>
-        <Form layout='vertical' name='expenseForm' onFinish={(value) => handleIncome(value)}>
+        <Form
+          layout='vertical'
+          name='incomeForm'
+          onFinish={(value) => handleIncome(value)}
+          form={form}
+        >
           <Form.Item
             label='Source'
             name='source'

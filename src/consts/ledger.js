@@ -9,3 +9,8 @@ export const actionTypes = {
   GET_ALL_LEDGERS: 'GET_ALL_LEDGERS',
   GET_LATES_LEDGERS: 'GET_LATES_LEDGERS',
 };
+
+export const loanType = {
+  BORROW: 'BORROW',
+  LEND: 'LEND',
+};

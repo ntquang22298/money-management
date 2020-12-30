@@ -9,13 +9,14 @@ const tailLayout = {
 };
 const ExpensesModal = (props) => {
   const dispatch = useDispatch();
-
+  const [form] = Form.useForm();
   const handleCancel = () => {
     props.setVisible(false);
   };
-  const handleExpense = (value) => {
-    dispatch(action.createExpense(value));
+  const handleExpense = async (value) => {
+    await dispatch(action.createExpense(value));
     props.setVisible(false);
+    form.resetFields();
   };
 
   return (
@@ -24,7 +25,7 @@ const ExpensesModal = (props) => {
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <img src={header} style={{ width: 500 }} loading='lazy' alt='expenses' />
         </div>
-        <Form layout='vertical' name='expenseForm' onFinish={handleExpense}>
+        <Form layout='vertical' name='expenseForm' onFinish={handleExpense} form={form}>
           <Form.Item
             label='Source'
             name='source'
